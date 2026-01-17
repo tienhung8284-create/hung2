@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Giấy báo dự thi ĐHQG-HCM</title>
+    <style>
+        body {
+            font-family: "Times New Roman", serif;
+            background: #ffffff;
+            color: #000;
+            margin: 0;
+            padding: 0;
+        }
+        .page {
+            width: 800px;
+            margin: 20px auto;
+            padding: 30px 40px;
+            box-sizing: border-box;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .logo {
+            width: 120px;
+        }
+        .logo img {
+            width: 100%;
+        }
+        .header-text {
+            margin-left: 10px;
+            font-size: 13px;
+            line-height: 1.4;
+        }
+        .title {
+            text-align: center;
+            margin: 20px 0 25px 0;
+        }
+        .title h1 {
+            font-size: 22px;
+            margin: 0;
+            font-weight: bold;
+        }
+        .title h2 {
+            font-size: 18px;
+            margin: 6px 0 0 0;
+            font-weight: bold;
+        }
+        .section {
+            margin-bottom: 18px;
+        }
+        .section-title {
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+        td {
+            padding: 4px 0;
+            vertical-align: top;
+        }
+        td.label {
+            width: 180px;
+            font-weight: bold;
+        }
+        .note {
+            color: #c00000;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+        .barcode {
+            margin-top: 20px;
+        }
+        .barcode img {
+            width: 260px;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- HEADER -->
+    <div class="header">
+        <div class="logo">
+            <!-- Thay logo tại đây -->
+            <img src="https://vnur.vn/wp-content/uploads/2023/01/3.DHQG-HCM.jpeg" alt="ĐHQG-HCM">
+        </div>
+        <div class="header-text">
+            <strong>ĐẠI HỌC QUỐC GIA</strong><br>
+            TP. HỒ CHÍ MINH
+        </div>
+    </div>
+
+    <!-- TITLE -->
+    <div class="title">
+        <h1>GIẤY BÁO DỰ THI</h1>
+        <h2>KỲ THI ĐÁNH GIÁ NĂNG LỰC ĐHQG-HCM</h2>
+    </div>
+
+    <!-- THÔNG TIN DỰ THI -->
+    <div class="section">
+        <div class="section-title">THÔNG TIN DỰ THI</div>
+        <table>
+            <tr>
+                <td class="label">Số báo danh:</td>
+                <td>{{ so_bao_danh }}</td>
+            </tr>
+            <tr>
+                <td class="label">Ngày giờ thi:</td>
+                <td>{{ ngay_gio_thi }}</td>
+            </tr>
+            <tr>
+                <td class="label">Địa điểm thi:</td>
+                <td>{{ dia_diem_thi }}</td>
+            </tr>
+            <tr>
+                <td class="label">Phòng thi:</td>
+                <td>{{ phong_thi }}</td>
+            </tr>
+            <tr>
+                <td class="label">Mã hồ sơ:</td>
+                <td>{{ ma_ho_so }}</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- THÔNG TIN CÁ NHÂN -->
+    <div class="section">
+        <div class="section-title">THÔNG TIN CÁ NHÂN</div>
+        <table>
+            <tr>
+                <td class="label">Họ và tên thí sinh:</td>
+                <td>{{ ho_ten }}</td>
+            </tr>
+            <tr>
+                <td class="label">Giới tính:</td>
+                <td>{{ gioi_tinh }}</td>
+            </tr>
+            <tr>
+                <td class="label">Ngày sinh:</td>
+                <td>{{ ngay_sinh }}</td>
+            </tr>
+            <tr>
+                <td class="label">Nơi sinh:</td>
+                <td>{{ noi_sinh }}</td>
+            </tr>
+            <tr>
+                <td class="label">Số CMND/CCCD:</td>
+                <td>{{ cccd }}</td>
+            </tr>
+            <tr>
+                <td class="label">Ngày cấp:</td>
+                <td>{{ ngay_cap }}</td>
+            </tr>
+            <tr>
+                <td class="label">Nơi cấp:</td>
+                <td>{{ noi_cap }}</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- THÔNG TIN LIÊN LẠC -->
+    <div class="section">
+        <div class="section-title">THÔNG TIN LIÊN LẠC</div>
+        <table>
+            <tr>
+                <td class="label">Địa chỉ liên lạc:</td>
+                <td>{{ dia_chi }}</td>
+            </tr>
+            <tr>
+                <td class="label">Số điện thoại:</td>
+                <td>{{ so_dien_thoai }}</td>
+            </tr>
+            <tr>
+                <td class="label">Email:</td>
+                <td>{{ email_thisinh }}</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- LƯU Ý -->
+    <div class="section note">
+        <strong>Thí sinh cần lưu ý:</strong><br>
+        1. Thí sinh phải có mặt tại phòng thi đúng thời gian quy định ghi trong giấy báo dự thi để làm thủ tục dự thi.<br>
+        2. Khi đi thi, thí sinh cần mang theo:
+        <ul>
+            <li>Giấy báo dự thi (bản in từ website kỳ thi ĐGNL ĐHQG-HCM);</li>
+            <li>Giấy tờ tùy thân đã dùng để đăng ký dự thi (bản chính, còn hạn sử dụng).</li>
+        </ul>
+        3. Thí sinh đọc và làm theo các yêu cầu trong Quy định dành cho thí sinh tại:
+        https://thinangluc.vnuhcm.edu.vn/dgnl/about
+    </div>
+</div>
+</body>
+</html>

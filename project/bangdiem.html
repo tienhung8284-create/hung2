@@ -1,0 +1,124 @@
+
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width,initial-
+scale=1">
+
+<style>
+body { font-family: Arial, Helvetica, sans-serif; margin:0;
+padding:0; background:#f4f6f8; color:#333; }
+.container { width:100%; max-width:680px; margin:24px auto;
+
+background:#ffffff; border-radius:8px; overflow:hidden; box-shadow:0 2px 6px rgba(0,0,0,0.08); }
+
+.header { background:#0b74de; color:#fff; padding:18px
+24px; }
+.logo { font-weight:700; font-size:18px; }
+.content { padding:20px 24px; }
+.greeting { font-size:16px; margin-bottom:12px; }
+.summary { background:#f7fbff; border:1px solid #e6f0fb;
+padding:12px; border-radius:6px; margin-bottom:18px; }
+.info { font-size:14px; color:#555; margin:4px 0; }
+
+table { width:100%; border-collapse:collapse; margin-bottom:16px; }
+
+th, td { padding:10px 12px; text-align:left; border-bottom:1px solid #e9eef5; font-size:14px; }
+
+th { background:#f1f6fb; color:#0b4f8a; font-weight:600; }
+.grade-good { color: #0b8a3d; font-weight:700; }
+.grade-warning { color:#e09b00; font-weight:700; }
+.grade-bad { color:#d64545; font-weight:700; }
+.footer { font-size:13px; color:#777; padding:16px 24px;
+background:#fafafa; border-top:1px solid #eee; }
+.btn { display:inline-block; background:#0b74de;
+
+color:#fff; padding:10px 14px; border-radius:6px; text-decoration:none; font-weight:600; margin-top:8px; }
+
+@media (max-width:480px){ .container { margin:12px; } th,
+td { padding:8px; } .header { padding:14px; } }
+</style>
+</head>
+<body>
+<div class="container" role="article" aria-label="Báo cáo
+điểm học tập">
+<div class="header">
+<div class="logo">[Tên trường / Lớp] — Báo cáo điểm</div>
+</div>
+
+<div class="content">
+<p class="greeting">Xin chào <strong>{{ student_name
+}}</strong>,</p>
+<div class="summary">
+<p class="info"><strong>Lớp:</strong> {{ class_name }}
+&nbsp; | &nbsp; <strong>Học kỳ:</strong> {{ semester }} </p>
+<p class="info"><strong>Người báo cáo:</strong> {{
+teacher_name }} &nbsp; | &nbsp; <strong>Ngày:</strong> {{
+report_date }}</p>
+</div>
+<p style="margin:0 0 8px 0; font-weight:600;">Bảng điểm chi
+tiết:</p>
+<table role="table" aria-label="Bảng điểm">
+<thead>
+<tr>
+<th>Môn học</th>
+<th>Điểm giữa kỳ</th>
+<th>Điểm cuối kỳ</th>
+<th>Điểm trung bình</th>
+<th>Nhận xét</th>
+</tr>
+</thead>
+<tbody>
+{% for item in grades %}
+<tr>
+<td>{{ item.subject }}</td>
+<td>{{ item.mid_term }}</td>
+<td>{{ item.final }}</td>
+<td>
+{% if item.average >= 8.0 %}
+<span class="grade-good">{{
+'%.2f'|format(item.average) }}</span>
+{% elif item.average >= 5.0 %}
+<span class="grade-warning">{{
+
+'%.2f'|format(item.average) }}</span>
+
+{% else %}
+<span class="grade-bad">{{
+'%.2f'|format(item.average) }}</span>
+
+{% endif %}
+</td>
+<td>{{ item.comment or '-' }}</td>
+
+</tr>
+{% endfor %}
+</tbody>
+</table>
+<p style="margin:6px 0;"><strong>Điểm trung bình
+chung:</strong> <span style="font-weight:700;">{{ gpa
+}}</span></p>
+{% if advice %}
+<div style="background:#fff7e6; border:1px solid #ffe6b8;
+padding:12px; border-radius:6px; margin-top:10px;">
+<p style="margin:0; font-weight:600;">Gợi ý / Khuyến
+nghị:</p>
+<p style="margin:6px 0 0 0;">{{ advice }}</p>
+</div>
+{% endif %}
+<p style="margin-top:14px;">Nếu bạn có câu hỏi hoặc cần thảo
+luận chi tiết, vui lòng liên hệ giáo viên chủ nhiệm.</p>
+<a class="btn" href="{{ details_link }}">Xem chi tiết tại hệ
+thống</a>
+</div>
+<div class="footer">
+<div>Trường: <strong>{{ school_name }}</strong></div>
+<div style="margin-top:6px;">Đây là email tự động. Vui lòng
+không trả lời trực tiếp vào email này.</div>
+</div>
+</div>
+```
+</body>
+</html>

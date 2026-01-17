@@ -1,0 +1,185 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Thông báo nghỉ học</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #f2f6fa;
+            font-family: "Times New Roman", serif;
+        }
+
+        .container {
+            width: 720px;
+            margin: 30px auto;
+            background: linear-gradient(to bottom, #eaf6ff 0%, #ffffff 40%, #f4ffe9 100%);
+            border-radius: 8px;
+            padding: 25px 35px 40px;
+            box-shadow: 0 0 8px rgba(0,0,0,0.08);
+        }
+
+        /* HEADER */
+        .header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .logo {
+            width: 90px;
+            margin-right: 15px;
+        }
+
+        .school-info {
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .school-info .name {
+            color: #c40000;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .school-info .sub {
+            color: #0055aa;
+            font-weight: bold;
+        }
+
+        .school-info .contact {
+            font-size: 13px;
+            color: #000;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #ccc;
+            margin: 12px 0 18px;
+        }
+
+        /* TITLE */
+        .title {
+            text-align: center;
+            margin-bottom: 18px;
+        }
+
+        .title h1 {
+            margin: 0;
+            font-size: 28px;
+            letter-spacing: 1px;
+        }
+
+        .title p {
+            margin: 4px 0 0;
+            font-style: italic;
+            font-size: 16px;
+        }
+
+        /* CONTENT */
+        .content {
+            font-size: 18px;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        .content ul {
+            margin: 10px 0 10px 30px;
+        }
+
+        .content li {
+            margin-bottom: 6px;
+        }
+
+        /* FOOTER */
+        .footer {
+            margin-top: 25px;
+            font-size: 18px;
+        }
+
+        .signature {
+            margin-top: 40px;
+            text-align: right;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .signature span {
+            display: block;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- HEADER -->
+    <div class="header">
+        <!-- Thay src bằng logo của trường -->
+        <img src="https://inkythuatso.com/uploads/images/2021/12/logo-truong-dai-hoc-tay-nguyen-inkythuatso-01-27-16-02-14.jpg" alt="Logo trường" class="logo">
+
+        <div class="school-info">
+            <div class="name">Trường Đại học Tây Nguyên</div>
+            <div class="sub">Trường Mầm non Thực hành 11-11</div>
+            <div class="contact">
+                567 Lê Duẩn – Phường Eatam – TP. Buôn Ma Thuột<br>
+                Điện thoại: 0905873709 – 0378440124 – 0942381418
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- TITLE -->
+    <div class="title">
+        <h1>THÔNG BÁO</h1>
+        <p>(V/v Học sinh nghỉ ngày thứ Bảy cuối tháng)</p>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content">
+        <p>
+            Ban Giám hiệu trường Mầm non Thực hành 11-11 thông báo đến quý phụ huynh
+            lịch nghỉ thứ Bảy cuối tháng như sau:
+        </p>
+
+        <ul>
+            <li>
+                Thứ Bảy ngày <strong>{{thoigian}}</strong>, học sinh toàn trường nghỉ học.
+            </li>
+            <li>
+                Tập thể cán bộ, giáo viên, công nhân viên nhà trường tổng vệ sinh toàn trường
+                và họp hội đồng sư phạm nhà trường.
+            </li>
+        </ul>
+
+        <p>
+            Thứ Hai, ngày <strong>{{thoigianketthuc}}</strong>: học sinh đi học bình thường.
+        </p>
+
+        <p>
+            Kính mong quý phụ huynh thu xếp thời gian, công việc để phối hợp cùng
+            với nhà trường thực hiện nội dung thông báo trên.
+        </p>
+
+        <p>
+            Chúc Quý phụ huynh có một ngày nghỉ cuối tuần thật ý nghĩa.
+        </p>
+
+        <p><strong>Trân trọng thông báo!</strong></p>
+    </div>
+
+    <!-- SIGNATURE -->
+    <div class="signature">
+        <span>{{ ban_giam_hieu }}</span>
+        <span>{{ ten }}</span>
+    </div>
+
+</div>
+
+</body>
+</html>
+
